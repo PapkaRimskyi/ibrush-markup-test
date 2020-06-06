@@ -1,0 +1,53 @@
+.header {
+  margin: $margin-auto;
+  padding-top: 27px;
+  width: $mobile-width;
+
+  &__article-name {
+    position: relative;
+    margin: 0 20px 30px;
+    padding: 0 calc(#{$mobile-width-container} - (#{$mobile-width-container} - 28px));
+    font-size: 24px;
+    line-height: 48px;
+    text-align: center;
+    color: #0062ff;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      width: 21px;
+      height: 1px;
+      background-color: $black-color;
+      opacity: .2;
+    }
+
+    &::after {
+      right: 0;
+    }
+
+    &::before {
+      left: 0;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .header {
+    width: $desktop-width;
+    padding-top: 73px;
+
+    &__article-name {
+      margin: 0 15px 70px;
+      padding: 0 calc(#{$desktop-width-container} - (#{$desktop-width-container} - 150px));
+      font-size: 48px;
+      line-height: 48px;
+
+      &::before,
+      &::after {
+        width: 140px;
+      }
+    }
+  }
+}

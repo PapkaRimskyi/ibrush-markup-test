@@ -1,0 +1,11 @@
+.footer {
+  margin: $margin-auto;
+  width: $mobile-width;
+}
+
+@media (min-width: $desktop-width) {
+  .footer {
+    padding-bottom: 50px;
+    width: $desktop-width;
+  }
+}

@@ -1,0 +1,51 @@
+.slider {
+  width: $mobile-width-container;
+
+  &__container {
+    margin: $margin-auto;
+    width: 26%;
+  }
+
+  &__pin-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    width: 20%;
+  }
+
+  &__button {
+    width: 10px;
+    height: 11px;
+    background-color: #cccccc;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity .2s;
+
+    &--active {
+      width: 14px;
+      height: 14px;
+      background-color: #0062ff;
+    }
+
+    &:hover {
+      opacity: .6;
+    }
+
+    &:active {
+      opacity: .3;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .slider {
+    display: none;
+  }
+}

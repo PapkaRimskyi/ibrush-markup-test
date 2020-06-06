@@ -1,0 +1,29 @@
+.article-section {
+  margin: $margin-auto;
+  margin-bottom: 56px;
+  width: $mobile-width-container;
+
+  &--estimate-article-margin {
+    margin-bottom: 35px;
+  }
+
+  &__section-name {
+    margin-bottom: 17px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .article-section {
+    width: $desktop-width-container;
+
+    &--estimate-article-margin {
+      margin-bottom: 76px;
+    }
+
+    &__section-name {
+      margin-bottom: 23px;
+      font-size: 28px;
+    }
+  }
+}

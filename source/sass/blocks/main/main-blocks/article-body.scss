@@ -1,0 +1,9 @@
+.article-body {
+  margin-bottom: 31px;
+}
+
+@media (min-width: $desktop-width) {
+  .article-body {
+    margin-bottom: 58px;
+  }
+}

@@ -1,0 +1,10 @@
+.main {
+  margin: $margin-auto;
+  width: $mobile-width;
+}
+
+@media (min-width: $desktop-width) {
+  .main {
+    width: $desktop-width;
+  }
+}
