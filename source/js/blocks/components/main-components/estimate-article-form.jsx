@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
 import DropMenu from '../custom/drop-menu';
@@ -41,12 +43,14 @@ export default class EstimateArticleForm extends React.Component {
 
   bookInputHandler(e) {
     e.preventDefault();
+    this.dropMenuArrowRotate(e.target.parentNode.children);
     this.setState((prevState) => ({ bookInputStatus: !prevState.bookInputStatus }));
   }
 
   dropMenuHandler(e) {
     if (e.target.tagName === 'BUTTON') {
       const text = e.target.textContent;
+      this.dropMenuArrowRotate(e.target.closest('.estimate-article__input-container').children);
       this.setState((prevState) => ({ book: text, bookInputStatus: !prevState.bookInputStatus }));
     }
   }
@@ -55,6 +59,15 @@ export default class EstimateArticleForm extends React.Component {
     if (e.target.type === 'radio') {
       const starNumber = e.target.value;
       this.setState(() => ({ starDefaultCheked: starNumber }));
+    }
+  }
+
+  dropMenuArrowRotate(target) {
+    const { bookInputStatus } = this.state;
+    if (bookInputStatus) {
+      Array.from(target).find((item) => item.tagName === 'IMG').style.transform = 'rotate(180deg)';
+    } else {
+      Array.from(target).find((item) => item.tagName === 'IMG').style.transform = 'rotate(0deg)';
     }
   }
 
@@ -74,17 +87,22 @@ export default class EstimateArticleForm extends React.Component {
               <section className="estimate-article__info-block">
                 <h2 className="visually-hidden">Оставить комментарий к книге</h2>
                 <div className="estimate-article__input-container">
-                  <input type="text" className="estimate-article__input-for-info" placeholder="Имя" pattern="^[А-Яа-яЁё\s]+$" title="Введите свое имя" required />
+                  <input type="text" className="estimate-article__input-for-info" id="name" placeholder="Имя" pattern="^[А-Яа-яЁё\s]+$" title="Введите свое имя" required />
+                  <label htmlFor="name" className="estimate-article__input-label">Имя</label>
                 </div>
                 <div className="estimate-article__input-container">
-                  <input type="email" className="estimate-article__input-for-info" placeholder="E-mail" title="Ваш e-mail" required />
+                  <input type="email" className="estimate-article__input-for-info" id="email" placeholder="E-mail" title="Ваш e-mail" required />
+                  <label htmlFor="email" className="estimate-article__input-label">E-mail</label>
                 </div>
-                <div className="estimate-article__input-container estimate-article__input-container--arrow">
-                  <input type="text" className="estimate-article__input-for-info estimate-article__input-for-info--choose-book" placeholder="Выберите книгу" title="Выберите книгу из списка" onClick={this.bookInputHandler} defaultValue={book || ''} required />
+                <div className="estimate-article__input-container">
+                  <input type="text" className="estimate-article__input-for-info estimate-article__input-for-info--choose-book" id="choose-book" placeholder="Выберите книгу" title="Выберите книгу из списка" readOnly onClick={this.bookInputHandler} defaultValue={book || ''} required />
+                  <label htmlFor="choose-book" className="estimate-article__input-label estimate-article__input-label--choose-book">Выберите книгу</label>
+                  <img className="estimate-article__drop-menu-arrow" src="assets/img/arrow.png" alt="" />
                   {bookInputStatus ? <DropMenu books={this.booksList} dropMenuHandler={this.dropMenuHandler} /> : null}
                 </div>
                 <div className="estimate-article__input-container">
                   <textarea className="estimate-article__input-for-info estimate-article__textarea" name="your-feedback" id="your-feedback" placeholder="Ваш отзыв" required />
+                  <label htmlFor="your-feedback" className="estimate-article__input-label">Ваш отзыв</label>
                 </div>
               </section>
             </div>

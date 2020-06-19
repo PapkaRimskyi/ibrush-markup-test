@@ -10,11 +10,11 @@
   }
 
   &__stars {
-    margin-bottom: 20px;
+    margin-bottom: 23px;
   }
 
   &__article-stars {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 16px;
     font-weight: 700;
     line-height: 18px;
@@ -27,32 +27,16 @@
     line-height: 18px;
   }
 
-  &__input-container:not(:last-child) {
+  &__input-container {
     position: relative;
-    margin-bottom: 12px;
   }
 
-  &__input-container--arrow::after {
-    position: absolute;
-    content: "";
-    width: 10px;
-    height: 6px;
-    top: 47%;
-    right: 5.8%;
-    background-image: url("../img/arrow.png");
-    background-repeat: no-repeat;
-    transform: rotate(180deg);
-  }
-
-  &__input-for-info,
-  &__input-for-info::placeholder {
-    font-family: $ArialFont;
-    font-size: 14px;
-    font-weight: 400;
+  &__input-container:not(:last-child) {
+    margin-bottom: 14px;
   }
 
   &__input-for-info {
-    padding: 14px 20px;
+    padding: 19px 20px 8px 20px;
     width: 100%;
     border: 1px solid rgb(230, 230, 230);
     border-radius: 4px;
@@ -64,12 +48,47 @@
     }
 
     &::placeholder {
-      color: #777777;
+      color: transparent;
     }
 
     &:hover {
       border-color: rgb(117, 117, 117);
     }
+  }
+
+  &__input-label {
+    position: absolute;
+    left: 21px;
+    top: 14px;
+    color: #777777;
+    cursor: text;
+    transition: all .3s ease;
+
+    &--choose-book {
+      cursor: pointer;
+    }
+  }
+
+  &__input-label,
+  &__textarea {
+    font-family: $ArialFont;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+  }
+
+  &__input-for-info:focus + &__input-label,
+  &__input-for-info:not(:placeholder-shown) + &__input-label,
+  &__input-for-info:hover + &__input-label {
+    top: 3px;
+  }
+
+  &__drop-menu-arrow {
+    position: absolute;
+    top: 47%;
+    right: 5.8%;
+    transform: rotate(180deg);
+    transition: rotate .5s ease-in;
   }
 
   &__textarea {
@@ -114,6 +133,7 @@
     }
 
     &__article-stars {
+      margin-bottom: 15px;
       font-size: 18px;
     }
 
@@ -139,7 +159,7 @@
     }
 
     &__textarea {
-      padding: 10px 20px;
+      padding: 19px 20px;
       height: 7em;
     }
 
