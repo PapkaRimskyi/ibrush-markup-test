@@ -1,16 +1,8 @@
 @import "variables.scss";
 @import "global.scss";
-@import "blocks/custom/slider.scss";
-@import "blocks/custom/star-raiting.scss";
-@import "blocks/custom/drop-menu.scss";
-@import "blocks/header/header.scss";
-@import "blocks/main/main.scss";
-@import "blocks/main/main-blocks/article-body.scss";
-@import "blocks/main/main-blocks/book-examples.scss";
-@import "blocks/main/main-blocks/article-section.scss";
-@import "blocks/main/main-blocks/blockquote.scss";
-@import "blocks/main/main-blocks/advertising-blocks.scss";
-@import "blocks/main/main-blocks/article-paragraph.scss";
-@import "blocks/main/main-blocks/estimate-article.scss";
-@import "blocks/footer/footer.scss";
-@import "blocks/footer/footer-blocks/similar-post.scss";
+
+@import "./connecting-styles/universal-items-connect/universal-blocks-connect/universal-blocks-connect-file.scss";
+
+@import "./connecting-styles/header-connect/header-connect-file.scss";
+
+@import "./connecting-styles/footer-connect/footer-connect-file.scss";

@@ -4,20 +4,20 @@ import './polyfills';
 
 import '../sass/style.scss';
 
-import Header from './blocks/header';
-import Main from './blocks/main';
-import Footer from './blocks/footer';
+import Header from './blocks/site-blocks/header/header';
+import Main from './blocks/site-blocks/main/main';
+import Footer from './blocks/site-blocks/footer/footer';
 
 const rootContainer = document.getElementById('root');
 
-function AppRoot() {
+function Index() {
   return (
-    <div className="root-container">
+    <>
       <Header />
       <Main />
       <Footer />
-    </div>
+    </>
   );
 }
 
-ReactDOM.render(<AppRoot />, rootContainer);
+ReactDOM.render(<Index />, rootContainer);
