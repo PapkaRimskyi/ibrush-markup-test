@@ -2,8 +2,7 @@ import React from 'react';
 
 import '../../../../../img/quotation.png';
 
-export default function BlockQuote(props) {
-  const { author, quoteText } = props;
+export default function BlockQuote({ author, quoteText }) {
   return (
     <blockquote className="blockquote">
       {quoteText}

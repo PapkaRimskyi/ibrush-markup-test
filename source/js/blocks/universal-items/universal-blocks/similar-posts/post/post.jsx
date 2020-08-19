@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export default function Post(props) {
-  const { postData, activeClass } = props;
+export default function Post({ postData, activeClass }) {
   return (
     <li className={classNames('similar-post__item', activeClass || null)}>
       <div className="similar-post__illustration">
