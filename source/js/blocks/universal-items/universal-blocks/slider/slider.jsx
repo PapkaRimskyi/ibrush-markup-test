@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default function Slider({ posts, activePin, sliderHandler }) {
@@ -18,3 +19,9 @@ export default function Slider({ posts, activePin, sliderHandler }) {
     </div>
   );
 }
+
+Slider.propTypes = {
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activePin: PropTypes.number.isRequired,
+  sliderHandler: PropTypes.func.isRequired,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default function Post({ postData, activeClass }) {
@@ -16,3 +17,12 @@ export default function Post({ postData, activeClass }) {
     </li>
   );
 }
+
+Post.propTypes = {
+  postData: PropTypes.objectOf(PropTypes.string).isRequired,
+  activeClass: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+};
+
+Post.defaultProps = {
+  activeClass: null,
+};

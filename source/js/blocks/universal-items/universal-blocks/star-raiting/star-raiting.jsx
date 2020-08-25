@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 export default function StarRaiting({ starAssessment }) {
   return (
@@ -15,3 +16,7 @@ export default function StarRaiting({ starAssessment }) {
     </section>
   );
 }
+
+StarRaiting.propTypes = {
+  starAssessment: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

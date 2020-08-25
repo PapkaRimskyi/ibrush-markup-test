@@ -15,7 +15,7 @@ rules: {
   react/button-has-type: 'off',
   jsx-a11y/no-noninteractive-tabindex: 'off',
   react/destructuring-assignment: [0],
-  react/prop-types: 0,
   react/no-did-update-set-state: 'off',
+  no-use-before-define: ["error", { "functions": false, "classes": true, "variables": true }],
   max-len: 'off',
 }

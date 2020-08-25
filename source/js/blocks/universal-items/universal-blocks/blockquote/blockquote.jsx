@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import '../../../../../img/quotation.png';
 
@@ -10,3 +11,8 @@ export default function BlockQuote({ author, quoteText }) {
     </blockquote>
   );
 }
+
+BlockQuote.propTypes = {
+  author: PropTypes.string.isRequired,
+  quoteText: PropTypes.string.isRequired,
+};

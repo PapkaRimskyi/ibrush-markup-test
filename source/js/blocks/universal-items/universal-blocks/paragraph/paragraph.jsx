@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Paragraph({ paragraphText }) {
   return (
@@ -7,3 +8,7 @@ export default function Paragraph({ paragraphText }) {
     </p>
   );
 }
+
+Paragraph.propTypes = {
+  paragraphText: PropTypes.string.isRequired,
+};

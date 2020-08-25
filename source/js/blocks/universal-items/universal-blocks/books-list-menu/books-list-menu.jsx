@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function BooksListMenu({ books, dropMenuHandler }) {
   return (
@@ -15,3 +16,8 @@ export default function BooksListMenu({ books, dropMenuHandler }) {
     </div>
   );
 }
+
+BooksListMenu.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.string).isRequired,
+  dropMenuHandler: PropTypes.func.isRequired,
+};

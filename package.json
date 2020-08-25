@@ -6,7 +6,7 @@
   "scripts": {
     "editorconfig": "editorconfig",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
-    "eslint": "eslint source/**/*.jsx",
+    "eslint": "eslint source/**/*.{js,jsx}",
     "check": "npm run editorconfig && npm run stylelint && npm run eslint",
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development"
@@ -61,6 +61,7 @@
     "classnames": "^2.2.6",
     "core-js": "^3.6.5",
     "cssnano": "^4.1.10",
+    "prop-types": "15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

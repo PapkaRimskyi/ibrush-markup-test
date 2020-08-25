@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function ArticleSection({ sectionTitle, className, children }) {
   return (
@@ -8,3 +9,9 @@ export default function ArticleSection({ sectionTitle, className, children }) {
     </section>
   );
 }
+
+ArticleSection.propTypes = {
+  sectionTitle: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+};

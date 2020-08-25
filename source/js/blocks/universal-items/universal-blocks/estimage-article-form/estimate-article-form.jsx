@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import BooksListMenu from '../books-list-menu/books-list-menu';
 import StarRaiting from '../star-raiting/star-raiting';
@@ -15,14 +15,16 @@ export default function EstimateArticleForm() {
   const [bookInputStatus, setBookInputStatus] = useState(false);
   const starAssessment = ['Ужасно', 'Плохо', 'Нормально', 'Хорошо', 'Отлично'];
 
-  function dropMenuArrowRotate(target) {
-    Array.from(target).find((item) => item.tagName === 'IMG').style.transform = `rotate(${bookInputStatus ? '180deg' : '0deg'})`;
-  }
-
   function bookInputHandler(e) {
     e.preventDefault();
     dropMenuArrowRotate(e.target.parentNode.children);
     setBookInputStatus((prevBookInputStatus) => !prevBookInputStatus);
+  }
+
+  function inputKeyListener(e) {
+    if (e.key === 'Enter') {
+      bookInputHandler(e);
+    }
   }
 
   function dropMenuHandler(e) {
@@ -34,19 +36,9 @@ export default function EstimateArticleForm() {
     }
   }
 
-  useEffect(() => {
-    function inputKeyListener(e) {
-      if (e.code === 'Enter') {
-        bookInputHandler(e);
-      }
-    }
-
-    document.querySelector('.estimate-article__input-for-info--choose-book').addEventListener('keypress', inputKeyListener);
-
-    return function unsubInputKeyListener() {
-      document.querySelector('.estimate-article__input-for-info--choose-book').removeEventListener('keypress', inputKeyListener);
-    };
-  });
+  function dropMenuArrowRotate(target) {
+    Array.from(target).find((item) => item.tagName === 'IMG').style.transform = `rotate(${bookInputStatus ? '180deg' : '0deg'})`;
+  }
 
   return (
     <section className="estimate-article">
@@ -77,6 +69,7 @@ export default function EstimateArticleForm() {
                   placeholder="Выберите книгу"
                   title="Выберите книгу из списка"
                   readOnly
+                  onKeyPress={inputKeyListener}
                   onClick={bookInputHandler}
                   defaultValue={book || null}
                   required
