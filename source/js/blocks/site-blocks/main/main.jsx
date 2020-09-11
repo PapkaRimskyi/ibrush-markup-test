@@ -6,7 +6,7 @@ import ArticleSection from '../../universal-items/universal-blocks/article-secti
 import Blockquote from '../../universal-items/universal-blocks/blockquote/blockquote';
 import AdvertisingBlocks from '../../universal-items/universal-blocks/advertising-block/advertising-block';
 import Paragraph from '../../universal-items/universal-blocks/paragraph/paragraph';
-import EstimateArticleForm from '../../universal-items/universal-blocks/estimage-article-form/estimate-article-form';
+import EstimateArticleForm from '../../universal-items/universal-blocks/estimage-article-form/redux-container/redux-container';
 
 const quoteText = `Разработчики и клиенты часто неправильно понимают, что такое система. Они видят графический интерфейс и думают, что он и есть система.
 Они определяют систему в терминах графического интерфейса и считают, что должны сразу начать работу с графическим интерфейсом. Они не понимают

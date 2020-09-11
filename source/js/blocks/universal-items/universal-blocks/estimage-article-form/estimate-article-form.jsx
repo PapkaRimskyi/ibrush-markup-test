@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
 import BooksListMenu from '../books-list-menu/books-list-menu';
 import StarRaiting from '../star-raiting/star-raiting';
@@ -10,8 +12,7 @@ import '../../../../../img/arrow.png';
 import '../../../../../img/star-empty.png';
 import '../../../../../img/star.png';
 
-export default function EstimateArticleForm() {
-  const [book, setBook] = useState(null);
+export default function EstimateArticleForm({ bookName, setBook }) {
   const [bookInputStatus, setBookInputStatus] = useState(false);
   const starAssessment = ['Ужасно', 'Плохо', 'Нормально', 'Хорошо', 'Отлично'];
 
@@ -71,12 +72,14 @@ export default function EstimateArticleForm() {
                   readOnly
                   onKeyPress={inputKeyListener}
                   onClick={bookInputHandler}
-                  defaultValue={book || null}
+                  defaultValue={bookName || null}
                   required
                 />
                 <label htmlFor="choose-book" className="estimate-article__input-label estimate-article__input-label--choose-book">Выберите книгу</label>
                 <img className="estimate-article__drop-menu-arrow" src="assets/img/arrow.png" alt="" />
-                {bookInputStatus ? <BooksListMenu books={booksList} dropMenuHandler={dropMenuHandler} /> : null}
+                <CSSTransition in={bookInputStatus} timeout={400} classNames="animate" unmountOnExit>
+                  <BooksListMenu books={booksList} dropMenuHandler={dropMenuHandler} />
+                </CSSTransition>
               </div>
               <div className="estimate-article__input-container">
                 <textarea className="estimate-article__input-for-info estimate-article__textarea" name="your-feedback" id="your-feedback" placeholder="Ваш отзыв" required />
@@ -90,3 +93,12 @@ export default function EstimateArticleForm() {
     </section>
   );
 }
+
+EstimateArticleForm.propTypes = {
+  bookName: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  setBook: PropTypes.func.isRequired,
+};
+
+EstimateArticleForm.defaultProps = {
+  bookName: null,
+};
