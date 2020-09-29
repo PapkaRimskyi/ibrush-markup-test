@@ -6,7 +6,7 @@ import { CSSTransition } from 'react-transition-group';
 import BooksListMenu from '../books-list-menu/books-list-menu';
 import StarRaiting from '../star-raiting/star-raiting';
 
-import booksList from './model/books-list';
+import booksList from './mock/books-list';
 
 import '../../../../../img/arrow.png';
 import '../../../../../img/star-empty.png';
@@ -95,7 +95,7 @@ export default function EstimateArticleForm({ bookName, setBook }) {
 }
 
 EstimateArticleForm.propTypes = {
-  bookName: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  bookName: PropTypes.string,
   setBook: PropTypes.func.isRequired,
 };
 

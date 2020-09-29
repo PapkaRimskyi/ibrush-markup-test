@@ -17,5 +17,6 @@ rules: {
   react/destructuring-assignment: [0],
   react/no-did-update-set-state: 'off',
   no-use-before-define: ["error", { "functions": false, "classes": true, "variables": true }],
+  object-curly-newline: 'off',
   max-len: 'off',
 }

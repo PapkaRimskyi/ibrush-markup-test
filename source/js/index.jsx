@@ -5,8 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import './polyfills';
 
-import initialState from './redux-files/initial-state/initial-state';
-import reducerApp from './redux-files/reducer/reducer';
+import reducer from './redux-files/reducer/main-reducer';
 
 import '../sass/style.scss';
 
@@ -15,7 +14,7 @@ import Main from './blocks/site-blocks/main/main';
 import Footer from './blocks/site-blocks/footer/footer';
 
 const rootContainer = document.getElementById('root');
-const store = createStore(reducerApp, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 function Index() {
   return (

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Post from './post/post';
 import Slider from '../slider/slider';
 
-import postsInfo from './model/postsInfo';
+import postsInfo from './mock/posts-info';
 
 import '../../../../../img/lifecycle-post-mobile-img.jpg';
 import '../../../../../img/lifecycle-post-desktop-img.jpg';

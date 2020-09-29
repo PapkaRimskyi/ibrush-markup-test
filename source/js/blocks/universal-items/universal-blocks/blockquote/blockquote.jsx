@@ -1,18 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import blockquoteInfo from './mock/blockquote-info';
 
 import '../../../../../img/quotation.png';
 
-export default function BlockQuote({ author, quoteText }) {
+export default function BlockQuote() {
+  const { text, author } = blockquoteInfo;
   return (
     <blockquote className="blockquote">
-      {quoteText}
+      {text}
       <cite>{author}</cite>
     </blockquote>
   );
 }
-
-BlockQuote.propTypes = {
-  author: PropTypes.string.isRequired,
-  quoteText: PropTypes.string.isRequired,
-};

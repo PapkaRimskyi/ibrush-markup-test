@@ -1,4 +1,4 @@
-.book-examples {
+.article-introduction {
   margin: $margin-auto;
   margin-bottom: 35px;
   width: $mobile-width;
@@ -54,7 +54,7 @@
 }
 
 @media (min-width: $desktop-width) {
-  .book-examples {
+  .article-introduction {
     position: relative;
     margin-bottom: 51px;
     width: $desktop-width;

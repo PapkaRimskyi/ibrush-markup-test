@@ -20,7 +20,7 @@ export default function Post({ postData, activeClass }) {
 
 Post.propTypes = {
   postData: PropTypes.objectOf(PropTypes.string).isRequired,
-  activeClass: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  activeClass: PropTypes.string,
 };
 
 Post.defaultProps = {

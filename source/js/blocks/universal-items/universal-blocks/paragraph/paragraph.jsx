@@ -1,14 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-export default function Paragraph({ paragraphText }) {
+import paragraphTextData from './mock/paragraph-text-data';
+
+export default function Paragraph() {
   return (
     <p className="article-paragraph">
-      {paragraphText}
+      {paragraphTextData}
     </p>
   );
 }
-
-Paragraph.propTypes = {
-  paragraphText: PropTypes.string.isRequired,
-};
