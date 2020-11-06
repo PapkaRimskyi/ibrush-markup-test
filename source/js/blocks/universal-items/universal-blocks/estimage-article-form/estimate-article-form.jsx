@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
+import { connect } from 'react-redux';
+import chooseBook from '../../../../redux-files/action/choose-book/choose-book';
+
 import BooksListMenu from '../books-list-menu/books-list-menu';
 import StarRaiting from '../star-raiting/star-raiting';
 
@@ -12,9 +15,12 @@ import '../../../../../img/arrow.png';
 import '../../../../../img/star-empty.png';
 import '../../../../../img/star.png';
 
-export default function EstimateArticleForm({ bookName, setBook }) {
+function EstimateArticleForm({ bookName, setBook }) {
   const [bookInputStatus, setBookInputStatus] = useState(false);
   const starAssessment = ['Ужасно', 'Плохо', 'Нормально', 'Хорошо', 'Отлично'];
+
+  // Обработчик для input с выбором книг. Изменяет состояние bookInputStatus, а тот, в свою очередь, позволяет отрисоваться меню с книгами или закрывает его.
+  // Так же происходит поворот стрелки в input'е.
 
   function bookInputHandler(e) {
     e.preventDefault();
@@ -22,11 +28,19 @@ export default function EstimateArticleForm({ bookName, setBook }) {
     setBookInputStatus((prevBookInputStatus) => !prevBookInputStatus);
   }
 
+  //
+
+  // Слушатель для кнопки Enter у input с выбором книг.
+
   function inputKeyListener(e) {
     if (e.key === 'Enter') {
       bookInputHandler(e);
     }
   }
+
+  //
+
+  // При выборе одной из книг в меню, произойдет поворот стрелки, меню с книгами закроется, а само название книги запишется и будет выведено в input.
 
   function dropMenuHandler(e) {
     if (e.target.tagName === 'BUTTON') {
@@ -37,9 +51,15 @@ export default function EstimateArticleForm({ bookName, setBook }) {
     }
   }
 
+  //
+
+  // Крутит стрелку при открытии/закрытии меню с книгами.
+
   function dropMenuArrowRotate(target) {
     Array.from(target).find((item) => item.tagName === 'IMG').style.transform = `rotate(${bookInputStatus ? '180deg' : '0deg'})`;
   }
+
+  //
 
   return (
     <section className="estimate-article">
@@ -102,3 +122,15 @@ EstimateArticleForm.propTypes = {
 EstimateArticleForm.defaultProps = {
   bookName: null,
 };
+
+function mapStateToProps(state) {
+  return {
+    bookName: state.bookName,
+  };
+}
+
+const mapDispatchToProps = {
+  setBook: chooseBook,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EstimateArticleForm);

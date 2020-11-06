@@ -13,6 +13,8 @@ import '../../../../../img/grid-post-desktop-img.jpg';
 export default function SimilarPost() {
   const [activeSlider, setActiveSlider] = useState(0);
 
+  // Обработчик для слайдера.
+
   function sliderHandler(e) {
     e.preventDefault();
     if (e.target.tagName === 'BUTTON') {
@@ -20,6 +22,8 @@ export default function SimilarPost() {
       setActiveSlider(pinNumber - 1);
     }
   }
+
+  //
 
   return (
     <section className="similar-post">

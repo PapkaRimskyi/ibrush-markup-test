@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import changeBookReducer from './change-book-reducer/change-book-reducer';
+import changeBook from './change-book/change-book';
 
 export default combineReducers(
   {
-    bookName: changeBookReducer,
+    bookName: changeBook,
   },
 );

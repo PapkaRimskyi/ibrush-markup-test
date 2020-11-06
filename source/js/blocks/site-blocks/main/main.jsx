@@ -6,7 +6,7 @@ import ArticleSection from '../../universal-items/universal-blocks/article-secti
 import Blockquote from '../../universal-items/universal-blocks/blockquote/blockquote';
 import AdvertisingBlocks from '../../universal-items/universal-blocks/advertising-block/advertising-block';
 import Paragraph from '../../universal-items/universal-blocks/paragraph/paragraph';
-import EstimateArticleForm from '../../universal-items/universal-blocks/estimage-article-form/container';
+import EstimateArticleForm from '../../universal-items/universal-blocks/estimage-article-form/estimate-article-form';
 
 export default function Main() {
   return (
